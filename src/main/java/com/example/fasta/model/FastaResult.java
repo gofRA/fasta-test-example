@@ -1,4 +1,4 @@
-package com.exampe.fasta.model;
+package com.example.fasta.model;
 
 import java.util.Map;
 import java.util.TreeMap;

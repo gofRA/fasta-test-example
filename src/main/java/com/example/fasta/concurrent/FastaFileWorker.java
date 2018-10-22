@@ -1,6 +1,6 @@
-package com.exampe.fasta.concurrent;
+package com.example.fasta.concurrent;
 
-import com.exampe.fasta.model.FastaResult;
+import com.example.fasta.model.FastaResult;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  * Worker that performs operation of reading .fasta file
- * and writing into sequence.fasta.gz
+ * and writing into {@value com.example.fasta.service.FastaFileService#sequenceFileName}
  *
  * @author rdanilov
  * @since 21.10.2018
@@ -35,7 +35,7 @@ public class FastaFileWorker implements Callable<FastaResult> {
      *
      * @param sync synchronizer to write sequences in right order
      * @param fileReader buffered reader of .fasta file
-     * @param fileWriter buffered writer of sequence.fasta.gz file
+     * @param fileWriter buffered writer of {@value com.example.fasta.service.FastaFileService#sequenceFileName} file
      */
     public FastaFileWorker(FastaSynchronizer sync, BufferedReader fileReader, BufferedWriter fileWriter) {
         this.fileReader = fileReader;
@@ -48,7 +48,7 @@ public class FastaFileWorker implements Callable<FastaResult> {
 
     /**
      * Runs in separate trade, reads a .fasta file, processes the results,
-     * and writes sequences to a sequence.fasta.gz file in right order.
+     * and writes sequences to a {@value com.example.fasta.service.FastaFileService#sequenceFileName} file in right order.
      *
      * @return result of reading file
      */
@@ -72,7 +72,7 @@ public class FastaFileWorker implements Callable<FastaResult> {
                             sync.moveOrder();
                             sync.notifyAll();
                         } catch (InterruptedException | IOException e) {
-                            log.severe("Something went wrong: " + e.getMessage());
+                            log.severe("Something went wrong while processing .fasta file: " + e.getMessage());
                         }
                     });
             sync.remove(this);

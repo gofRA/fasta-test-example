@@ -1,6 +1,6 @@
-package com.exampe.fasta;
+package com.example.fasta;
 
-import com.exampe.fasta.service.FastaFileService;
+import com.example.fasta.service.FastaFileService;
 
 import java.util.Arrays;
 

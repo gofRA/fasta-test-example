@@ -1,4 +1,4 @@
-package com.exampe.fasta.concurrent;
+package com.example.fasta.concurrent;
 
 import java.util.ArrayList;
 import java.util.List;

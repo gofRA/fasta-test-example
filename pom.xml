@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.exampe.fasta.Main</mainClass>
+                            <mainClass>com.example.fasta.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

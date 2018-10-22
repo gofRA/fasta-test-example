@@ -1,6 +1,6 @@
-import com.exampe.fasta.Main;
-import com.exampe.fasta.model.FastaResult;
-import com.exampe.fasta.service.FastaFileService;
+import com.example.fasta.Main;
+import com.example.fasta.model.FastaResult;
+import com.example.fasta.service.FastaFileService;
 import org.hamcrest.core.StringStartsWith;
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static com.exampe.fasta.service.FastaFileService.reportFileName;
-import static com.exampe.fasta.service.FastaFileService.sequenceFileName;
+import static com.example.fasta.service.FastaFileService.reportFileName;
+import static com.example.fasta.service.FastaFileService.sequenceFileName;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

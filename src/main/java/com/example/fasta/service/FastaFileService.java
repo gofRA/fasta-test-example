@@ -1,8 +1,8 @@
-package com.exampe.fasta.service;
+package com.example.fasta.service;
 
-import com.exampe.fasta.concurrent.FastaFileWorker;
-import com.exampe.fasta.concurrent.FastaSynchronizer;
-import com.exampe.fasta.model.FastaResult;
+import com.example.fasta.concurrent.FastaFileWorker;
+import com.example.fasta.concurrent.FastaSynchronizer;
+import com.example.fasta.model.FastaResult;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -114,7 +114,7 @@ public class FastaFileService {
             BufferedReader reader = new BufferedReader(new InputStreamReader(gzipStream));
             return new FastaFileWorker(sync, reader, sequenceWriter);
         } catch (IOException e) {
-            log.severe("Something went wrong: " + e.getMessage());
+            log.severe("Can't open file to read " + file.getName() + ": " + e.getMessage());
             return null;
         }
     }
@@ -123,7 +123,7 @@ public class FastaFileService {
         try {
             return result.get();
         } catch (InterruptedException | ExecutionException e) {
-            log.severe("Something went wrong: " + e.getMessage());
+            log.severe("Can't obtain result: " + e.getMessage());
             return null;
         }
     }
@@ -136,7 +136,7 @@ public class FastaFileService {
             GZIPOutputStream outputStream = new GZIPOutputStream(new FileOutputStream(file));
             return new BufferedWriter(new OutputStreamWriter(outputStream));
         } catch (IOException e) {
-            log.severe("Something went wrong: " + e.getMessage());
+            log.severe("Can't create buffered writer for " + sequenceFileName + ": " + e.getMessage());
             return null;
         }
     }
@@ -148,7 +148,7 @@ public class FastaFileService {
             File file = reportPath.toFile();
             return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
         } catch (IOException e) {
-            log.severe("Something went wrong: " + e.getMessage());
+            log.severe("Can't create buffered writer for " + reportFileName + ": " + e.getMessage());
             return null;
         }
     }
